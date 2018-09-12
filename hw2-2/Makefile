@@ -1,12 +1,12 @@
-all: array_pointer.o call_by_reference.o
-	g++ -o array_pointer array_pointer.o
-	g++ -o call_by_reference call_by_reference.o
+all: get_sum_diff.o to_lower_upper.o
+	g++ -o get_sum_diff get_sum_diff.o
+	g++ -o to_lower_upper to_lower_upper.o
 
-array_pointer.o: array_pointer.cc
-	g++ -c -o array_pointer.o array_pointer.cc
+get_sum_diff.o: get_sum_diff.cc
+	g++ -c -o get_sum_diff.o get_sum_diff.cc
 
-call_by_reference.o: call_by_reference.cc
-	g++ -c -o call_by_reference.o call_by_reference.cc
+to_lower_upper.o: to_lower_upper.cc
+	g++ -c -o to_lower_upper.o to_lower_upper.cc
 
 clean:
-	rm array_pointer.o array_pointer call_by_reference.o call_by_reference
+	rm get_sum_diff.o get_sum_diff to_lower_upper.o to_lower_upper
