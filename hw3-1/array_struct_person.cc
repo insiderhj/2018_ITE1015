@@ -15,7 +15,7 @@ int main()
 	}
 
 	for (int i = 0; i < 3; i++) {
-		printf("Name: %s, Age: %d\n", (saramdul + i) -> name, (saramdul + i) -> age);
+		printf("Name:%s, Age:%d\n", (saramdul + i) -> name, (saramdul + i) -> age);
 	}
 	return 0;
 }
