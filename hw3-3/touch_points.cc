@@ -33,7 +33,7 @@ int main()
 				cdy = saramdul[i].points[j].y;
 			}
 		}
-		printf("(%g, %g)\n", cdx, cdy);
+		printf("(%lf, %lf)\n", cdx, cdy);
 	}
 	return 0;
 }
