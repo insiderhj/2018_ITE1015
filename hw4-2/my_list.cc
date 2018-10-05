@@ -71,5 +71,6 @@ int main(void)
 		currentItem = currentItem->nextItem;
 	}
 
+	fclose(fp);
 	return 0;
 }
