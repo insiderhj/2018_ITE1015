@@ -31,7 +31,6 @@ int main(void)
 	fp = fopen("input.txt", "r");
 	char currentLine[100];
 	struct Item* firstItem = NULL;
-	bool clear = true;
 	
 	while(!feof(fp)) {
 		fgets(currentLine, sizeof(currentLine), fp);
@@ -46,7 +45,6 @@ int main(void)
 
 		if (firstItem == NULL) {
 			firstItem = newItem;
-			clear = false;
 		} else {
 			insert_item(firstItem, newItem);
 		}
