@@ -71,10 +71,15 @@ int main(void)
 		}
 		currentItem = currentItem->nextItem;
 	}
-	while (!clear) {
-		if (find_end_of_list(firstItem) == firstItem) clear = true;
-		delete(find_end_of_list(firstItem));
+	
+	struct Item* now = firstItem;
+	struct Item* next;
+	while (now->nextItem != NULL) {
+		next = now -> nextItem;
+		delete now;
+		now = next;
 	}
+	delete now;
 		
 	fclose(fp);
 	return 0;
