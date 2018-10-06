@@ -30,8 +30,8 @@ int main(void)
 	FILE* fp;
 	fp = fopen("input.txt", "r");
 	char currentLine[100];
-	bool first = true;
-	struct Item* firstItem;
+	struct Item* firstItem = NULL;
+	bool clear = true;
 	
 	while(!feof(fp)) {
 		fgets(currentLine, sizeof(currentLine), fp);
@@ -44,9 +44,9 @@ int main(void)
 		newItem->id = tmp[2];
 		newItem->subjects = subjects;
 
-		if (first) {
+		if (firstItem == NULL) {
 			firstItem = newItem;
-			first = false;
+			clear = false;
 		} else {
 			insert_item(firstItem, newItem);
 		}
@@ -61,7 +61,8 @@ int main(void)
 		}
 		if (strcmp(hakbun, "2013") == 0) {
 			printf("%s: %s: ", currentItem->name, currentItem->id);
-			for (int i = 0; currentItem->subjects[i] != NULL; i++) {
+			for (int i = 0; i < 10; i++) {
+				if (currentItem->subjects[i] == NULL) break;
 				printf("%s", currentItem->subjects[i]);
 				if (currentItem->subjects[i + 1] != NULL) {
 					printf(", ");
@@ -70,7 +71,11 @@ int main(void)
 		}
 		currentItem = currentItem->nextItem;
 	}
-
+	while (!clear) {
+		if (find_end_of_list(firstItem) == firstItem) clear = true;
+		delete(find_end_of_list(firstItem));
+	}
+		
 	fclose(fp);
 	return 0;
 }
