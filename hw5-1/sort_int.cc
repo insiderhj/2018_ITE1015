@@ -6,9 +6,9 @@ using namespace std;
 int main()
 {
 	int nums;
-	int* arr;
-
 	cin >> nums;
+
+	int* arr = new int[nums+1];
 	if (nums <= 0) return 0;
 
 	for (int i = 0; i < nums; i++) {
