@@ -19,7 +19,11 @@ int main()
 	while (true) {
 		getline(cin, str);
 		if (str[0] == '#') {
-			if (str[1] == 'q') break;
+			if (str.substr(1, 4) == "quit") break;
+			else if (str.substr(1, 6) != "remove") {
+				cout << "Error!" << endl;
+				continue;
+			}
 			arguement = split(str, " ")[1];
 			comma = split(arguement, ",");
 			hiphen = split(arguement, "-");
