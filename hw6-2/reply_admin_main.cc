@@ -9,6 +9,7 @@ int main()
 {
 	ReplyAdmin admin;
 	string str;
+	string work;
 	string arguement;
 	string* comma = new string[10];
 	string* hiphen = new string[10];
@@ -17,8 +18,8 @@ int main()
 
 	while (true) {
 		getline(cin, str);
-		
 		if (str[0] == '#') {
+			if (str[1] == 'q') break;
 			arguement = split(str, " ")[1];
 			comma = split(arguement, ",");
 			hiphen = split(arguement, "-");
@@ -40,7 +41,10 @@ int main()
 				}
 			}
 		} else {
-			if (!admin.addChat(str)) cout << "Error!" << endl;
+			if (!admin.addChat(str)) {
+				cout << "Error!" << endl;
+				continue;
+			}
 		}
 		
 		for (int i = 0; i <= admin.getChatCount(); i++) {
