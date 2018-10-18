@@ -17,8 +17,9 @@ int main() {
 
 		if (todo[4] == "") return -1;
 		for (int i = 0; i < 5; i++) {
-			if (i == 2 && !(todo[i] == "H" || todo[i] == "A" || todo[i] == "F")) return -1;
-			else if (!check_number(todo[i])) return -1;
+			if (i == 2) {
+				if (!(todo[i] == "H" || todo[i] == "A" || todo[i] == "F")) return -1;
+			} else if (!check_number(todo[i])) return -1;
 		}
 	
 		fighter = new MinimalFighter(atoi(todo[0].c_str()), atoi(todo[1].c_str()));
