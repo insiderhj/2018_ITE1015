@@ -29,7 +29,8 @@ int main()
 			hiphen = split(arguement, "-");
 			count = 0;
 
-			for (int i = 0; comma[i] != ""; i++) {
+			for (int i = 0; i < 10; i++) {
+				if (comma[i] == "") break;
 				indices[i] = atoi(comma[i].c_str());
 				count++;
 			}
