@@ -16,6 +16,7 @@ public:
 	int power() const;
 	FighterStatus status() const;
 	void setHp(int);
+	void setStatus(FighterStatus);
 	void hit(MinimalFighter*);
 	void attack(MinimalFighter*);
 	void fight(MinimalFighter*);

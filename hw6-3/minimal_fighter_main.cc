@@ -35,6 +35,10 @@ int main() {
 
 		if (enemy->status() == Alive) cout << "H" << enemy->hp() << ", P" << enemy->power() << endl;
 		else cout << "DEAD" << endl;
+
+		delete fighter;
+		delete enemy;
+		delete[] todo;
 	}
 
 	return 0;

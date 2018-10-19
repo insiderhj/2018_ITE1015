@@ -34,17 +34,23 @@ FighterStatus MinimalFighter::status() const {
 void MinimalFighter::setHp(int _hp) {
 	if (_hp <= 0) {
 		mHp = 0;
-		mStatus = Dead;
 	} else mHp = _hp;
 }
 
+void MinimalFighter::setStatus(FighterStatus _status) {
+	mStatus = _status;
+}
+
 void MinimalFighter::hit(MinimalFighter* _enemy) {
-	_enemy->setHp(_enemy->hp() - mPower);
-	setHp(mHp - _enemy->power());
+	if (mStatus == Alive) _enemy->setHp(_enemy->hp() - mPower);
+	if (_enemy->status() == Alive) setHp(mHp - _enemy->power());
+	if (mHp == 0) mStatus = Dead;
+	if (_enemy->hp() == 0) _enemy->setStatus(Dead);
 }
 
 void MinimalFighter::attack(MinimalFighter* _target) {
-	_target->setHp(_target->hp() - mPower);
+	if (mStatus == Alive) _target->setHp(_target->hp() - mPower);
+	if (_target->hp() == 0) _target->setStatus(Dead);
 	mPower = 0;
 }
 
