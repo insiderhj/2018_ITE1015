@@ -77,8 +77,9 @@ string* split(string& str, const string& delim) {
 }
 
 bool check_number(string str) {
-	if (str == "0") return true;
-	if (atoi(str.c_str()) > 0) return true;
-	return false;
+	for (int i = 0; i < str.length(); i++) {
+		if (!(str[i] >= '0' && str[i] <= '9')) return false;
+	}
+	return true;
 }
 
