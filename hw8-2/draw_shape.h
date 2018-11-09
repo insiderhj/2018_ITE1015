@@ -3,7 +3,8 @@
 
 class Shape {
 protected:
-	int _xpos, _ypos, _width, _height, _area, _perimeter;
+	int _xpos, _ypos, _width, _height, _perimeter;
+	double _area;
 	char _brush;
 	char** canvas;
 public:

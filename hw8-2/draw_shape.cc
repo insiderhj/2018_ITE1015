@@ -93,9 +93,9 @@ void Rectangle::Draw(int canvas_width, int canvas_height) {
 
 Diamond::Diamond() {}
 
-Diamond::Diamond(int xpos, int ypos, int width, char brush) : Shape(xpos, ypos, width, width, brush) {
-	_area = _width * _height * 2;
-	_perimeter = 4 * (_width + _height);
+Diamond::Diamond(int xpos, int ypos, int distance, char brush) : Shape(xpos, ypos, distance, distance, brush) {
+	_area = (_width * 2 + 1) * (_height * 2 + 1) / 2.0 ;
+	_perimeter = 4 * (_width + _height + 2);
 }
 
 void Diamond::Draw(int canvas_width, int canvas_height) {
