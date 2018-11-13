@@ -35,12 +35,12 @@ void B::print() {
 
 C::C(string c) : B(1.1) {
 	memberC = new string(c);
-	cout << "new memberC " << endl;
+	cout << "new memberC" << endl;
 }
 
 C::~C() {
 	delete memberC;
-	cout << "delete memberC" << endl;
+	cout << "delete memberC " << endl;
 }
 
 void C::print() {

@@ -1,16 +1,21 @@
 #include <vector>
 #include <string>
+#include <iostream>
 #include "print_member.h"
 
 using namespace std;
 
 int main() {
 	vector<A*> objects;
-	string test_string = "test";
+	int a;
+	double b;
+	string c;
+	
+	cin >> a >> b >> c;
 
-	objects.push_back(new A(20));
-	objects.push_back(new B(3.14));
-	objects.push_back(new C(test_string));
+	objects.push_back(new A(a));
+	objects.push_back(new B(b));
+	objects.push_back(new C(c));
 
 	for (A* object : objects) object->print();
 
