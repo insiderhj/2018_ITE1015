@@ -21,9 +21,9 @@ int main() {
 		D* d = dynamic_cast<D*>(object);
 		if (c) c->test_C();
 		if (d) d->test_D();
+		delete object;
 	}
 
-	for (auto object : objects) delete object;
 
 	return 0;
 }
