@@ -33,7 +33,7 @@ int main() {
 				else c = b + b;
 			} else {
 				cin >> arg;
-				c = a * stoi(arg);
+				c = b * stoi(arg);
 			}
 		}
 		cout << c << endl;

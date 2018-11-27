@@ -39,13 +39,12 @@ ostream& operator<<(ostream& out, MyString& my_string) {
 }
 
 istream& operator>>(istream& in, MyString& my_string) {
-	char temp[51];
-	char hangul;
+	char temp[51] = {'\0', };
 	int length = 0;
-	for (int i = 0; i < 50; i++, length++) {
-		hangul = getchar();
-		if (hangul == ' ' || hangul == '\n') break;
-		temp[i] = hangul;
+	
+	cin >> temp;
+	for (;length < 50; length++) {
+		if (temp[length] == '\0') break;
 	}
 
 	my_string.len = length;	
