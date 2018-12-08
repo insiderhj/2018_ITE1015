@@ -64,13 +64,14 @@ public:
 	}
 
 	void insert_at(int idx, T& data) {
+		if (idx == 0) push_front(data);
 		if (!head) return;
 		Node<T>* prev;
 		Node<T>* curr = head;
 		for (int i = 0; i < idx; i++) {
 			prev = curr;
 			curr = curr->next;
-			if (!curr) return;
+			if (!curr && i != idx - 1) return;
 		}
 		prev->next = new Node<T>(data);
 		prev->next->next = curr;
@@ -78,6 +79,10 @@ public:
 
 	void remove_at(int idx) {
 		if (!head) return;
+		if (idx == 0) {
+			pop_front();
+			return;
+		}
 		Node<T>* prev;
 		Node<T>* curr = head;
 		for (int i = 0; i < idx; i++) {
@@ -85,14 +90,8 @@ public:
 			curr = curr->next;
 			if (!curr) return;
 		}
-		if (curr == head) {
-			prev = curr;
-			head = curr->next;
-			delete prev;
-		} else {
-			prev->next = curr->next;
-			delete curr;
-		}
+		prev->next = curr->next;
+		delete curr;
 	}
 
 	void push_back(T& data) {
@@ -129,6 +128,7 @@ public:
 	}
 
 	void pop_front() {
+		if (!head) return;
 		Node<T>* curr = head->next;
 		delete head;
 		head = curr;
